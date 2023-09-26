@@ -9,8 +9,8 @@ import { fetchCountries, selectCountries, selectLoading } from '../features/coun
 import { selectLanguage } from '../features/languages/languagesSlice';
 
 const SideMenu: React.FC = () => {
-    const { countries, loading } = useAppSelector((state) => ({
-        countries: selectCountries(state),
+    const { currency, loading } = useAppSelector((state) => ({
+        currency: selectCountries(state),
         loading: selectLoading(state)
     }));
     const dispatch = useAppDispatch();
@@ -37,7 +37,7 @@ const SideMenu: React.FC = () => {
                         <FormattedMessage id="spiner.loading" />
                     </Menu.Item>
                 ) : (
-                    (countries?.[0]?.rates || []).slice(0, visibleItems).map((country) => (
+                    (currency?.[0]?.rates || []).slice(0, visibleItems).map((country) => (
                         <Menu.Item key={country.currency} >
                             <Link to={`/currency/${country.currency.toLowerCase()}`}>{`Currency: ${country.currency} Rate: ${country.rate}`}</Link>
                         </Menu.Item>

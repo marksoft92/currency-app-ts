@@ -1,12 +1,12 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import countriesReducer from '../features/countries/countriesSLice';
+import currencySlice from '../features/countries/countriesSLice';
 
 import newsRecuer from '../features/news/newsSlice'
 import languagesReducer from '../features/languages/languagesSlice';
 
 export const store = configureStore({
   reducer: {
-    countries: countriesReducer,
+    currency: currencySlice,
     news: newsRecuer,
     languages: languagesReducer,
   },

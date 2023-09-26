@@ -29,7 +29,7 @@ const axiosInstance = axios.create({
     maxRedirects: 0,
 });
 
-export const fetchCountries = createAsyncThunk('countries/fetch', async () => {
+export const fetchCountries = createAsyncThunk('currency/fetch', async () => {
     try {
         const response = await axiosInstance.get<any>('https://api.apilayer.com/exchangerates_data/latest?apikey=dLE4c1ar5VRw2YegPLCYYI8Uuh1ng5ep&base=PLN');
         const { base, date, rates } = response.data;
@@ -51,8 +51,8 @@ export const fetchCountries = createAsyncThunk('countries/fetch', async () => {
     }
 });
 
-export const countriesSlice = createSlice({
-    name: 'countries',
+export const currencySlice = createSlice({
+    name: 'currency',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
@@ -72,7 +72,7 @@ export const countriesSlice = createSlice({
     },
 });
 
-export const selectCountries = (state: RootState) => state.countries.list;
-export const selectLoading = (state: RootState) => state.countries.loading;
+export const selectCountries = (state: RootState) => state.currency.list;
+export const selectLoading = (state: RootState) => state.currency.loading;
 
-export default countriesSlice.reducer;
+export default currencySlice.reducer;
