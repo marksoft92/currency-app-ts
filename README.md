@@ -1,10 +1,10 @@
 # Currency Exchange Rate App
 
-![React Badge](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white) (https://img.shields.io/badge/React-18.2.0-blue) 
-![TypeScript Badge](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-4.9.5-blue) 
-![React Router Badge](https://img.shields.io/badge/-React%20Router-CA4245?logo=react-router&logoColor=white) ![React Router](https://img.shields.io/badge/React%20Router-6.9.0-blue) 
-![ESLint Badge](https://img.shields.io/badge/-ESLint-4B32C3?logo=eslint&logoColor=white)![Eslint](https://img.shields.io/badge/Eslint-8.0.1-blue) 
-![Ant Design Badge](https://img.shields.io/badge/-Ant%20Design-0170FE?logo=ant-design&logoColor=white) ![Ant Design Icons](https://img.shields.io/badge/Ant%20Design%20Icons-5.0.1-blue)
+![React Badge](https://img.shields.io/badge/-React-61DAFB?logo=react&logoColor=white) ![](https://img.shields.io/badge/React-18.2.0-blue) 
+![TypeScript Badge](https://img.shields.io/badge/-TypeScript-3178C6?logo=typescript&logoColor=white) ![](https://img.shields.io/badge/TypeScript-4.9.5-blue) 
+![React Router Badge](https://img.shields.io/badge/-React%20Router-CA4245?logo=react-router&logoColor=white) ![](https://img.shields.io/badge/React%20Router-6.9.0-blue) 
+![ESLint Badge](https://img.shields.io/badge/-ESLint-4B32C3?logo=eslint&logoColor=white)![](https://img.shields.io/badge/Eslint-8.0.1-blue) 
+![Ant Design Badge](https://img.shields.io/badge/-Ant%20Design-0170FE?logo=ant-design&logoColor=white) ![](https://img.shields.io/badge/Ant%20Design%20Icons-5.0.1-blue)
 ![MIT License](https://img.shields.io/badge/License-MIT-green)
 
 ## Description 🔥
