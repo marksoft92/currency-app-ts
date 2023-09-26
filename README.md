@@ -6,6 +6,9 @@
 ![Eslint](https://img.shields.io/badge/Eslint-8.0.1-blue) 
 ![Ant Design Icons](https://img.shields.io/badge/Ant%20Design%20Icons-5.0.1-blue)
 ![MIT License](https://img.shields.io/badge/License-MIT-green)
+
+## Description 🔥
+
 This is a Currency Exchange Rate App built with React and TypeScript. The app allows users to check exchange rates for various currencies in comparison to the Polish Złoty (PLN). It provides the latest exchange rates and historical time series data for selected currencies.
 
 ## Installation
