@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { fetchTimeseriesCurrency, selectRates, selectLoading } from './timeSeriesSlice';
+import { selectRates, selectLoading } from './timeSeriesSlice';
+import { fetchTimeseriesCurrency } from './fetchTimeseriesCurrency';
 import { useCustomNavigate } from '../../utils/helpers';
 import NewsList from './timeSeries';
 import { useEffect } from 'react';
@@ -34,7 +35,7 @@ const ListNews: React.FC = () => {
 
     return (
         <>
-            <ConnectedNewsList onPush={onPush} />
+            <ConnectedNewsList  />
         </>
     );
 };

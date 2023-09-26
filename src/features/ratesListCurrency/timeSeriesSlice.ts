@@ -1,20 +1,7 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
-import { getStartAndEndDate } from '../../utils/helpers';
-const apiKey = process.env.REACT_APP_API_KEY;
-
-
-export interface RateInfo {
-    [currency: string]: number;
-}
-
-export interface ExchangeRate {
-    loading: boolean;
-    error: string | null;
-    rates: { [date: string]: RateInfo };
-}
-
+import { fetchTimeseriesCurrency } from './fetchTimeseriesCurrency';
+import { ExchangeRate } from './types'
 
 
 const initialState: ExchangeRate = {
@@ -22,15 +9,7 @@ const initialState: ExchangeRate = {
     error: null,
     rates: {},
 };
-const { start, end } = getStartAndEndDate();
 
-export const fetchTimeseriesCurrency = createAsyncThunk('timeseries/fetch', async (currencyCode: string | undefined) => {
-    const response = await axios.get<ExchangeRate>(
-        `https://api.apilayer.com/exchangerates_data/timeseries?apikey=${apiKey}&start_date=${start}&end_date=${end}&base=${currencyCode}`
-    );
-
-    return response.data;
-});
 
 export const timeSeriesCurrencySlice = createSlice({
     name: 'timeSeriesCurrency',

@@ -5,7 +5,8 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { FormattedMessage } from 'react-intl';
 
 import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { fetchCurrency, selectCurrency, selectLoading } from '../features/currencyList/currencyListSice';
+import { selectCurrency, selectLoading } from '../features/currencyList/currencyListSice';
+import { fetchCurrency } from '../features/currencyList/fetchCurrency';
 
 const SideMenu: React.FC = () => {
     const { currency, loading } = useAppSelector((state) => ({

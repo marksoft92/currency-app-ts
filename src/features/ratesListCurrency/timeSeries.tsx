@@ -1,14 +1,13 @@
 import React from 'react';
 import { Table } from 'antd';
-import { RateInfo } from "./timeSeriesSlice"
+import { RateInfo } from "./types"
 import columns from './columns';
 interface NewsProps {
   rates: { [date: string]: RateInfo };
-  onPush: (path: string) => void;
   loading: boolean;
 }
 
-const News: React.FC<NewsProps> = ({ rates, onPush, loading }) => {
+const News: React.FC<NewsProps> = ({ rates, loading }) => {
 
 
   function obiektDoTablicy(obiekt: any) {

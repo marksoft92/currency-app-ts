@@ -1,23 +1,10 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import axios from 'axios';
-const apiKey = process.env.REACT_APP_API_KEY;
-interface Currency {
-    currency: string;
-    rate: number; 
-}
+import { fetchCurrency } from './fetchCurrency';
+import { CurrencyState } from './types';
 
-interface Currencies {
-    base: string;
-    date: string;
-    rates: Currency[];
-}
 
-interface CurrencyState {
-    list: Currencies[];
-    loading: boolean;
-    error: string | null;
-}
 
 const initialState: CurrencyState = {
     list: [],
@@ -25,30 +12,8 @@ const initialState: CurrencyState = {
     error: null,
 };
 
-const axiosInstance = axios.create({
+export const axiosInstance = axios.create({
     maxRedirects: 0,
-});
-
-export const fetchCurrency = createAsyncThunk('currency/fetch', async () => {
-    try {
-        const response = await axiosInstance.get<any>(`https://api.apilayer.com/exchangerates_data/latest?apikey=${apiKey}&base=PLN`);
-        const { base, date, rates } = response.data;
-
-        // Wyjaśniamy TypeScriptowi, że `rate` jest liczbą
-        const currencyRates: Currency[] = Object.entries(rates).map(([currency, rate]) => ({
-            currency,
-            rate: Number(rate), // Konwertujemy `rate` na liczbę
-        }));
-
-        const currencyData: Currencies = {
-            base,
-            date,
-            rates: currencyRates,
-        };
-        return [currencyData];
-    } catch (error) {
-        throw error;
-    }
 });
 
 export const currencySlice = createSlice({
