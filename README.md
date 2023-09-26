@@ -1,11 +1,11 @@
 # Currency Exchange Rate App
 
-:react ![React](https://img.shields.io/badge/React-18.2.0-blue) 
-![TypeScript](https://img.shields.io/badge/TypeScript-4.9.5-blue) 
-![React Router](https://img.shields.io/badge/React%20Router-6.9.0-blue) 
-![Eslint](https://img.shields.io/badge/Eslint-8.0.1-blue) 
-![Ant Design Icons](https://img.shields.io/badge/Ant%20Design%20Icons-5.0.1-blue)
-![MIT License](https://img.shields.io/badge/License-MIT-green)
+![React Badge] ![React](https://img.shields.io/badge/React-18.2.0-blue) 
+![TypeScript Badge] ![TypeScript](https://img.shields.io/badge/TypeScript-4.9.5-blue) 
+![React Router Badge] ![React Router](https://img.shields.io/badge/React%20Router-6.9.0-blue) 
+![Eslint Badge] ![Eslint](https://img.shields.io/badge/Eslint-8.0.1-blue) 
+![Ant Design Badge] ![Ant Design Icons](https://img.shields.io/badge/Ant%20Design%20Icons-5.0.1-blue)
+![MIT License Badge] ![MIT License](https://img.shields.io/badge/License-MIT-green)
 
 ## Description 🔥
 
