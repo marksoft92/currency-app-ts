@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { fetchNews, selectArticles, selectLoading } from './newsSlice';
+import { fetchTimeseriesCurrency, selectRates, selectLoading } from './newsSlice';
 import { useCustomNavigate } from '../../utils/helpers';
 import NewsList from './news';
 import { useEffect } from 'react';
@@ -10,14 +10,14 @@ import { AppDispatch, RootState } from '../../app/store';
 const mapStateToProps = (state: RootState) => {
     console.log(state)
     return {
-        rates: selectArticles(state),
+        rates: selectRates(state),
         loading: selectLoading(state),
     };
 };
 
 const mapDispatchToProps = (dispatch: AppDispatch) => {
     return {
-        fetchNews: (currencyCode: string | undefined) => dispatch(fetchNews(currencyCode)),
+        fetchTimeseriesCurrency: (currencyCode: string | undefined) => dispatch(fetchTimeseriesCurrency(currencyCode)),
     };
 };
 
@@ -29,7 +29,7 @@ const ListNews: React.FC = () => {
     const onPush = useCustomNavigate();
 
     useEffect(() => {
-        dispatch(fetchNews(currencyCode || undefined));
+        dispatch(fetchTimeseriesCurrency(currencyCode || undefined));
     }, [dispatch, currencyCode]);
 
     return (

@@ -40,12 +40,12 @@ export const fetchCurrency = createAsyncThunk('currency/fetch', async () => {
             rate: Number(rate), // Konwertujemy `rate` na liczbę
         }));
 
-        const countryData: Currencies = {
+        const currencyData: Currencies = {
             base,
             date,
             rates: currencyRates,
         };
-        return [countryData];
+        return [currencyData];
     } catch (error) {
         throw error;
     }

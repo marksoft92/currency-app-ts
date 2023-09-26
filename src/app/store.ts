@@ -7,7 +7,7 @@ import languagesReducer from '../features/languages/languagesSlice';
 export const store = configureStore({
   reducer: {
     currency: currencySlice,
-    news: newsRecuer,
+    timeSeriesCurrency: newsRecuer,
     languages: languagesReducer,
   },
 });

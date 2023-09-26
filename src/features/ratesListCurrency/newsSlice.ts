@@ -23,7 +23,7 @@ const initialState: ExchangeRate = {
 };
 const { start, end } = getStartAndEndDate();
 
-export const fetchNews = createAsyncThunk('timeseries/fetch', async (currencyCode: string | undefined) => {
+export const fetchTimeseriesCurrency = createAsyncThunk('timeseries/fetch', async (currencyCode: string | undefined) => {
     const response = await axios.get<ExchangeRate>(
         `https://api.apilayer.com/exchangerates_data/timeseries?apikey=dLE4c1ar5VRw2YegPLCYYI8Uuh1ng5ep&start_date=${start}&end_date=${end}&base=${currencyCode}`
     );
@@ -31,28 +31,28 @@ export const fetchNews = createAsyncThunk('timeseries/fetch', async (currencyCod
     return response.data;
 });
 
-export const newsSlice = createSlice({
-    name: 'news',
+export const timeSeriesCurrencySlice = createSlice({
+    name: 'timeSeriesCurrency',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchNews.pending, (state) => {
+            .addCase(fetchTimeseriesCurrency.pending, (state) => {
                 state.loading = true;
             })
-            .addCase(fetchNews.fulfilled, (state, action) => {
+            .addCase(fetchTimeseriesCurrency.fulfilled, (state, action) => {
                 state.loading = false;
                 state.rates = action.payload.rates;
             })
-            .addCase(fetchNews.rejected, (state, action) => {
+            .addCase(fetchTimeseriesCurrency.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message ?? 'Wystąpił błąd podczas ładowania artykułów.';
             });
     },
 });
 
-export const selectArticles = (state: RootState) => state.news.rates;
-export const selectLoading = (state: RootState) => state.news.loading;
+export const selectRates = (state: RootState) => state.timeSeriesCurrency.rates;
+export const selectLoading = (state: RootState) => state.timeSeriesCurrency.loading;
 
 
-export default newsSlice.reducer;
+export default timeSeriesCurrencySlice.reducer;

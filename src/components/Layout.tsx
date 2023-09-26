@@ -13,7 +13,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div>
             <Header />
             <div className="content">
-                <span>{"sss"}</span>
                 <SideMenu />
                 <div className="main">{children}</div>
             </div>
