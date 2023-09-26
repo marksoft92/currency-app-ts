@@ -118,9 +118,24 @@ The following technologies were used in the development of this project:
 
 Other project-specific libraries and tools may be listed here.
 
-## API Information
+Certainly! Here's the updated information regarding the API usage in your Currency Exchange Rate App:
 
-The Currency Exchange Rate App utilizes external APIs to fetch the latest exchange rates and historical time series data for various currencies. The API allows users to access currency exchange rate information efficiently.
+---
+
+**API Integration**
+
+The Currency Exchange Rate App integrates with external APIs to provide users with up-to-date currency exchange rate information and historical time series data. One of the primary APIs used in this application is the [ExchangeRates Data API](https://apilayer.com/marketplace/exchangerates_data-api), offered by apilayer.
+
+**ExchangeRates Data API**
+
+- **Provider**: apilayer
+- **Purpose**: The API is employed to efficiently retrieve currency exchange rate data for various currencies, ensuring that users have access to accurate and current information.
+
+By leveraging the capabilities of the ExchangeRates Data API, the Currency Exchange Rate App delivers a seamless and informative currency exchange experience.
+
+---
+
+Should you have any further questions or require additional information, please don't hesitate to reach out.
 
 ## License
 
