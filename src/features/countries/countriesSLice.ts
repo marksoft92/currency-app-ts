@@ -13,13 +13,13 @@ interface Currencies {
     rates: Currency[];
 }
 
-interface CountriesState {
+interface CurrencyState {
     list: Currencies[];
     loading: boolean;
     error: string | null;
 }
 
-const initialState: CountriesState = {
+const initialState: CurrencyState = {
     list: [],
     loading: false,
     error: null,
@@ -29,7 +29,7 @@ const axiosInstance = axios.create({
     maxRedirects: 0,
 });
 
-export const fetchCountries = createAsyncThunk('currency/fetch', async () => {
+export const fetchCurrency = createAsyncThunk('currency/fetch', async () => {
     try {
         const response = await axiosInstance.get<any>('https://api.apilayer.com/exchangerates_data/latest?apikey=dLE4c1ar5VRw2YegPLCYYI8Uuh1ng5ep&base=PLN');
         const { base, date, rates } = response.data;
@@ -57,22 +57,22 @@ export const currencySlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
-            .addCase(fetchCountries.pending, (state) => {
+            .addCase(fetchCurrency.pending, (state) => {
                 state.loading = true;
                 state.error = null;
             })
-            .addCase(fetchCountries.fulfilled, (state, action) => {
+            .addCase(fetchCurrency.fulfilled, (state, action) => {
                 state.loading = false;
                 state.list = action.payload;
             })
-            .addCase(fetchCountries.rejected, (state, action) => {
+            .addCase(fetchCurrency.rejected, (state, action) => {
                 state.loading = false;
                 state.error = action.error.message ?? 'Wystąpił błąd podczas ładowania państw.';
             });
     },
 });
 
-export const selectCountries = (state: RootState) => state.currency.list;
+export const selectCurrency = (state: RootState) => state.currency.list;
 export const selectLoading = (state: RootState) => state.currency.loading;
 
 export default currencySlice.reducer;

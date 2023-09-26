@@ -5,12 +5,12 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { FormattedMessage } from 'react-intl';
 
 import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { fetchCountries, selectCountries, selectLoading } from '../features/countries/countriesSLice';
+import { fetchCurrency, selectCurrency, selectLoading } from '../features/countries/countriesSLice';
 import { selectLanguage } from '../features/languages/languagesSlice';
 
 const SideMenu: React.FC = () => {
     const { currency, loading } = useAppSelector((state) => ({
-        currency: selectCountries(state),
+        currency: selectCurrency(state),
         loading: selectLoading(state)
     }));
     const dispatch = useAppDispatch();
@@ -18,7 +18,7 @@ const SideMenu: React.FC = () => {
     const localeShort = locale === 'en' ? 'bre' : locale === "pl" ? 'pol' : "bre"
 
     useEffect(() => {
-        dispatch(fetchCountries());
+        dispatch(fetchCurrency());
     }, [dispatch]);
 
     const [visibleItems, setVisibleItems] = useState(10); // Liczba widocznych pozycji początkowo
