@@ -9,7 +9,6 @@ import { useParams } from 'react-router';
 import { AppDispatch, RootState } from '../../app/store';
 
 const mapStateToProps = (state: RootState) => {
-    console.log(state)
     return {
         rates: selectRates(state),
         loading: selectLoading(state),
@@ -23,7 +22,6 @@ const mapDispatchToProps = (dispatch: AppDispatch) => {
 };
 
 const ConnectedNewsList = connect(mapStateToProps, mapDispatchToProps)(NewsList);
-console.log(ConnectedNewsList)
 const ListNews: React.FC = () => {
     const { currencyCode } = useParams();
     const dispatch: AppDispatch = useDispatch();

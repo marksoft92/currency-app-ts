@@ -28,7 +28,7 @@ const News: React.FC<NewsProps> = ({ rates, loading }) => {
   }
 
   const tablicaWyjsciowa = obiektDoTablicy(rates);
-  console.log(tablicaWyjsciowa);
+
   return (
     <>
       <Table
