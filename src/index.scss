@@ -1,0 +1,21 @@
+@import "./assets/styles.scss";
+@import "./assets/footer.scss";
+@import "./assets/popup.scss";
+@import "./assets/pages.scss";
+@import "./assets/spiner.scss";
+@import "./assets/header.scss";
+@import "./assets/article.scss";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

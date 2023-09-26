@@ -1,0 +1,29 @@
+.loader {
+    display: inline-block;
+    position: relative;
+    width: var(--size);
+    height: var(--size);
+  
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: calc(var(--size) * 0.75);
+      height: calc(var(--size) * 0.75);
+      border-radius: 50%;
+      border: calc(var(--size) * 0.08) solid var(--color);
+      border-color: var(--color) transparent var(--color) transparent;
+      animation: loader-spin 1.2s linear infinite;
+    }
+  }
+  
+  @keyframes loader-spin {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
