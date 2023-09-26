@@ -6,24 +6,28 @@ import { setCurrentLanguage } from '../features/languages/languagesSlice';
 import { FormattedMessage } from 'react-intl';
 
 const Header: React.FC = () => {
-
     const dispatch = useDispatch();
-    const handleLanguageChange = (coutryCode: string) => {
-        dispatch(setCurrentLanguage(coutryCode));
+
+    const handleLanguageSelectionChange = (countryCode: string) => {
+        dispatch(setCurrentLanguage(countryCode));
     };
+
+    const selectStyle = { width: 120 };
+    const languageOptions = [
+        { value: 'pl', label: <FormattedMessage id="app.languagePl" /> },
+        { value: 'en', label: <FormattedMessage id="app.languageEn" /> },
+    ];
+
     return (
         <header>
             <Link to="/"><FormattedMessage id="title" /></Link>
-            <div>  <Select
-                defaultValue="en"
-                style={{ width: 120 }}
-                onChange={v => handleLanguageChange(v)}
-                options={[
-                    { value: 'pl', label: <FormattedMessage id="app.languagePl" /> },
-                    { value: 'en', label: <FormattedMessage id="app.languageEn" /> },
-                    { value: 'no', label: <FormattedMessage id="app.languageNo" /> },
-                ]}
-            />
+            <div>
+                <Select
+                    defaultValue="en"
+                    style={selectStyle}
+                    onChange={value => handleLanguageSelectionChange(value)}
+                    options={languageOptions}
+                />
             </div>
         </header>
     );
