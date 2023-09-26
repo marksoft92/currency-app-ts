@@ -37,6 +37,7 @@ const News: React.FC<NewsProps> = ({ rates, onPush }) => {
         dataSource={tablicaWyjsciowa}
         columns={columns}
         pagination={false}
+        key="data"
       />
 
     </>
