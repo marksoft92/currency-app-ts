@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { axiosInstance } from './currencyListSice';
+import { axiosInstance } from './currencyListSlice';
 import {ApiResponse, Currency} from './types'
 export const apiKey = process.env.REACT_APP_API_KEY;
 
