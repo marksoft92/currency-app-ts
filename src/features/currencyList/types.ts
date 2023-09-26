@@ -1,16 +1,16 @@
 export interface Currency {
-    currency: string;
-    rate: number; 
+  currency: string;
+  rate: number;
 }
 
 export interface ApiResponse {
-    base: string;
-    date: string;
-    rates: Currency[];
+  base: string;
+  date: string;
+  rates: Currency[];
 }
 
 export interface CurrencyState {
-    list: ApiResponse[];
-    loading: boolean;
-    error: string | null;
+  list: ApiResponse[];
+  loading: boolean;
+  error: string | null;
 }

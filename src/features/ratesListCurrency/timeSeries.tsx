@@ -1,15 +1,13 @@
-import React from 'react';
-import { Table } from 'antd';
-import { RateInfo } from "./types"
-import columns from './columns';
+import React from "react";
+import { Table } from "antd";
+import { RateInfo } from "./types";
+import columns from "./columns";
 interface NewsProps {
   rates: { [date: string]: RateInfo };
   loading: boolean;
 }
 
 const News: React.FC<NewsProps> = ({ rates, loading }) => {
-
-
   function obiektDoTablicy(obiekt: any) {
     const tablicaWynikowa = [];
 
@@ -18,7 +16,7 @@ const News: React.FC<NewsProps> = ({ rates, loading }) => {
       if (obiekt.hasOwnProperty(data)) {
         const element = {
           data: data,
-          allCurrency: obiekt[data]
+          allCurrency: obiekt[data],
         };
         tablicaWynikowa.push(element);
       }
@@ -38,7 +36,6 @@ const News: React.FC<NewsProps> = ({ rates, loading }) => {
         key="data"
         loading={loading}
       />
-
     </>
   );
 };
