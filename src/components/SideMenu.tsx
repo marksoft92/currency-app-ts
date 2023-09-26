@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, Spin } from "antd";
-import { LoadingOutlined } from "@ant-design/icons";
+import { LineChartOutlined, LoadingOutlined } from "@ant-design/icons";
 import { FormattedMessage } from "react-intl";
 
 import { useAppDispatch, useAppSelector } from "../app/hooks";
@@ -10,6 +10,7 @@ import {
   selectLoading,
 } from "../containers/currencyList/currencyListSlice";
 import { fetchCurrency } from "../containers/currencyList/fetchCurrency";
+import Loader from "./spiner";
 
 const SideMenu: React.FC = () => {
   const { currency, loading } = useAppSelector((state) => ({
@@ -29,33 +30,38 @@ const SideMenu: React.FC = () => {
     setVisibleItems((prevVisibleItems) => prevVisibleItems + increment);
   };
 
-  const LoadingIndicator: React.FC = () => (
-    <Menu.Item key="loading" icon={<Spin indicator={<LoadingOutlined />} />}>
-      <FormattedMessage id="spiner.loading" />
-    </Menu.Item>
-  );
+  const currencyColumnList = (
+    (currency?.[0]?.rates || [])
+      .slice(0, visibleItems)
+      .map(({ currency, rate }) => (
+        <Menu.Item key={currency}>
+          <Link
+            to={`/currency/${currency.toLowerCase()}`}
+          ><FormattedMessage id="currency" />
+            &nbsp;
+            <strong>{currency}</strong>
+            &nbsp;
+            <FormattedMessage id="titleColumnCurrency" />
+            &nbsp;
+            <strong>{rate}</strong></Link>
+        </Menu.Item>
+      ))
+  )
 
   return (
     <div className="left-content">
+      <span className="titleColumn "><FormattedMessage id="titleColumnCurrency" />&nbsp;<LineChartOutlined /></span>
       <Menu mode="inline">
         {loading ? (
-          <LoadingIndicator />
-        ) : (
-          (currency?.[0]?.rates || [])
-            .slice(0, visibleItems)
-            .map(({ currency, rate }) => (
-              <Menu.Item key={currency}>
-                <Link
-                  to={`/currency/${currency.toLowerCase()}`}
-                >{`Currency: ${currency} Rate: ${rate}`}</Link>
-              </Menu.Item>
-            ))
-        )}
-        <button className="button-load-more" onClick={loadMore}>
-          <div className="dot dot-1"></div>
-          <div className="dot dot-2"></div>
-          <div className="dot dot-3"></div>
-        </button>
+          <Loader />
+        ) : <>
+          {currencyColumnList}
+          <button className="button-load-more" onClick={loadMore}>
+            <div className="dot dot-1"></div>
+            <div className="dot dot-2"></div>
+            <div className="dot dot-3"></div>
+          </button>
+        </>}
       </Menu>
     </div>
   );

@@ -2,6 +2,8 @@ import React from "react";
 import { Table } from "antd";
 import { RateInfo } from "./types";
 import columns from "./columns";
+import { FormattedMessage } from "react-intl";
+import { OrderedListOutlined } from "@ant-design/icons";
 interface NewsProps {
   rates: { [date: string]: RateInfo };
   loading: boolean;
@@ -29,6 +31,7 @@ const News: React.FC<NewsProps> = ({ rates, loading }) => {
 
   return (
     <>
+      <span className="titleColumn "><FormattedMessage id="titleColumnHistoryCurrency" />&nbsp;<OrderedListOutlined /></span>
       <Table
         dataSource={tablicaWyjsciowa}
         columns={columns}

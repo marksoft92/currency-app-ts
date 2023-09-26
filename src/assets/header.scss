@@ -1,18 +1,22 @@
+$dark-blue: #1a237e; 
+$light-blue: #2196f3; 
+
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #eee;
+  background: linear-gradient(to right, $dark-blue, $light-blue);
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
-
+  box-shadow: 0px 11px 6px rgba(0, 0, 0, 0.1); 
+  
   a {
     font-size: 1.5rem;
     font-weight: bold;
     text-decoration: none;
-    color: #333;
+    color: #fff;
   }
 
   div {
@@ -71,4 +75,8 @@ header {
 .ant-popover-content {
   max-width: 50vw;
   margin-right: 1rem;
+}
+
+.anticon-dollar {
+  margin-left: 1rem;
 }

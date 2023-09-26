@@ -1,5 +1,8 @@
 {
-  "title": "Wyszukiwarka artykułów",
+  "title": "Aplikacja kursu walut",
+  "titleColumnCurrency":"Kursy",
+  "titleColumnHistoryCurrency":"Historia kursów w stosunku do wybranej waluty",
+  "currency": "Waluta:",
   "titleColumn": "Tytuł",
   "publishedAtColumn": "Data publikacji",
   "descriptionColumn": "Opis",
@@ -11,7 +14,7 @@
   "header.list": "Lista",
   "header.tiles": "Kafelki",
   "header.info": "Info",
-  "header.infoTitle": "Trudności i frajdy",
+ 
   "footer.count": "Liczba artykułów: ",
   "footer.currentTime": "Godzina: ",
   "popup.author": "Autor:",

@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { Select } from "antd";
 import { setCurrentLanguage } from "../services/languages/languagesSlice";
 import { FormattedMessage } from "react-intl";
+import { DollarOutlined } from "@ant-design/icons";
 
 const Header: React.FC = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const Header: React.FC = () => {
     <header>
       <Link to="/">
         <FormattedMessage id="title" />
+        <DollarOutlined />
       </Link>
       <div>
         <Select

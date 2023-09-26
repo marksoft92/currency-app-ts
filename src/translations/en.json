@@ -1,5 +1,8 @@
 {
-  "title": "News Finder",
+  "title": "Currency rates application",
+  "titleColumnCurrency":"Rates", 
+  "titleColumnHistoryCurrency":"History of rates in relation to the selected currency",
+  "currency": "Currency:",
   "titleColumn": "Title",
   "publishedAtColumn": "Published At",
   "descriptionColumn": "Description",
@@ -11,7 +14,7 @@
   "header.list": "List",
   "header.tiles": "Tiles",
   "header.info": "Info",
-  "header.infoTitle": "Difficulties and pleasures",
+
   "footer.count": "Count articles: ",
   "footer.currentTime": "Current time: ",
   "popup.author": "Author:",
