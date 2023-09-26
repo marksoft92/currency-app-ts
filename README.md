@@ -26,7 +26,7 @@ This is a Currency Exchange Rate App built with React and TypeScript. The app al
 
 5. In the `.env.local` file, add your API key as follows:
 
-EACT_APP_API_KEY=YOUR_API_KEY
+REACT_APP_API_KEY=YOUR_API_KEY
 
 
 6. Save the `.env.local` file.
