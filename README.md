@@ -1,6 +1,11 @@
-# News App
+# Currency Exchange Rate App
 
-This is a News App built with React and TypeScript. The app allows users to browse news articles from different countries and view detailed information about each article. It utilizes external APIs to fetch the news data and offers language selection for localized content.
+![React](https://img.shields.io/badge/React-17.0.2-blue)
+![TypeScript](https://img.shields.io/badge/TypeScript-4.5.4-blue)
+![React Router](https://img.shields.io/badge/React%20Router-6.0.0-blue)
+![Eslint](https://img.shields.io/badge/Eslint-8.0.1-blue)
+![MIT License](https://img.shields.io/badge/License-MIT-green)
+This is a Currency Exchange Rate App built with React and TypeScript. The app allows users to check exchange rates for various currencies in comparison to the Polish Złoty (PLN). It provides the latest exchange rates and historical time series data for selected currencies.
 
 ## Installation
 
@@ -13,6 +18,15 @@ This is a News App built with React and TypeScript. The app allows users to brow
 3. Install the dependencies:
 
 
+4. Create a `.env.local` file in the project's root directory.
+
+5. In the `.env.local` file, add your API key as follows:
+
+EACT_APP_API_KEY=YOUR_API_KEY
+
+
+6. Save the `.env.local` file.
+
 ## Usage
 
 To run the application locally, follow these steps:
@@ -22,13 +36,13 @@ To run the application locally, follow these steps:
 
 2. Open your browser and visit [http://localhost:3000](http://localhost:3000).
 
-3. On the left side of the homepage, you will find a list of countries. Click on a country to see related news articles.
+3. On the left side of the homepage, you will find a list of currencies. Click on a currency to see its latest exchange rate.
 
-4. After clicking on a country, a responsive table will display the news articles associated with the selected country.
+4. After clicking on a currency, you will also see a historical time series chart displaying the exchange rate data for that currency over time.
 
-5. Click on a news article to view its details within the application.
+5. You can switch between different currencies and view their exchange rate details.
 
-6. You can also switch between different languages to display content in your preferred language.
+6. The app provides language selection options for localized content.
 
 ## Technologies Used
 
@@ -43,7 +57,7 @@ Other project-specific libraries and tools may be listed here.
 
 ## API Information
 
-I utilized external APIs to enhance the functionality of the News App. The chosen API provides news articles and language selection. However, due to limitations in the API, I had to work around the absence of a proper article identifier. As a solution, I used the article title as the identifier. Consequently, I couldn't directly fetch a single article using the REST API. Instead, I had to retrieve articles based on the title from my reducer. Although a book API might have been more suitable for this task, it did not pose a problem for me.
+The Currency Exchange Rate App utilizes external APIs to fetch the latest exchange rates and historical time series data for various currencies. The API allows users to access currency exchange rate information efficiently.
 
 ## License
 
