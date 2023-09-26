@@ -6,7 +6,6 @@ import { FormattedMessage } from 'react-intl';
 
 import { useAppDispatch, useAppSelector } from '../app/hooks';
 import { fetchCurrency, selectCurrency, selectLoading } from '../features/currencyList/currencyListSice';
-import { selectLanguage } from '../features/languages/languagesSlice';
 
 const SideMenu: React.FC = () => {
     const { currency, loading } = useAppSelector((state) => ({
@@ -14,8 +13,6 @@ const SideMenu: React.FC = () => {
         loading: selectLoading(state)
     }));
     const dispatch = useAppDispatch();
-    const locale: string = useAppSelector(selectLanguage);
-    const localeShort = locale === 'en' ? 'bre' : locale === "pl" ? 'pol' : "bre"
 
     useEffect(() => {
         dispatch(fetchCurrency());

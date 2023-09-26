@@ -1,13 +1,8 @@
 import React from 'react';
 import { Table } from 'antd';
-import { useParams } from 'react-router';
-import { useDispatch } from 'react-redux';
 import { RateInfo } from "./newsSlice"
 import columns from './columns';
 import Breadcrumbs from '../../components/Breadcrumbs';
-import { convertToHyphenCase } from '../../utils/helpers';
-
-
 interface NewsProps {
   rates: { [date: string]: RateInfo };
   onPush: (path: string) => void;
