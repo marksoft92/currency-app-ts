@@ -2,7 +2,6 @@ import React from 'react';
 import { Table } from 'antd';
 import { RateInfo } from "./timeSeriesSlice"
 import columns from './columns';
-import Breadcrumbs from '../../components/Breadcrumbs';
 interface NewsProps {
   rates: { [date: string]: RateInfo };
   onPush: (path: string) => void;
@@ -33,7 +32,6 @@ const News: React.FC<NewsProps> = ({ rates, onPush, loading }) => {
   console.log(tablicaWyjsciowa);
   return (
     <>
-      <Breadcrumbs />
       <Table
         dataSource={tablicaWyjsciowa}
         columns={columns}
