@@ -6,9 +6,10 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 interface NewsProps {
   rates: { [date: string]: RateInfo };
   onPush: (path: string) => void;
+  loading: boolean;
 }
 
-const News: React.FC<NewsProps> = ({ rates, onPush }) => {
+const News: React.FC<NewsProps> = ({ rates, onPush, loading }) => {
 
 
   function obiektDoTablicy(obiekt: any) {
@@ -38,6 +39,7 @@ const News: React.FC<NewsProps> = ({ rates, onPush }) => {
         columns={columns}
         pagination={false}
         key="data"
+        loading={loading}
       />
 
     </>
