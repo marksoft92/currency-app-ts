@@ -1,11 +1,24 @@
+.main-content {
+  width: 100%;
+  border-left: 1px solid #000;
+}
+
 .content {
   display: flex;
   align-items: flex-start;
+  border: 1px solid #000;
+  .left-content {
+    border-right: 1px solid #000;
+  }
+
   ul {
     width: 20rem;
-    background: #f1efef;
     color: #000;
-
+    &.ant-menu {
+      .button-load-more {
+        margin: 1rem auto;
+      }
+    }
     .ant-menu-item {
       img {
         width: 30px;

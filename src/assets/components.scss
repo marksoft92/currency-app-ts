@@ -1,0 +1,57 @@
+.button-load-more {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #000;
+    margin-right: 5px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @keyframes wave {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-10px);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(10px);
+    }
+  }
+
+  &:hover {
+    .dot {
+      animation: wave 1s linear infinite;
+    }
+
+    .dot-1 {
+      animation-delay: 0s;
+    }
+
+    .dot-2 {
+      animation-delay: 0.2s;
+    }
+
+    .dot-3 {
+      animation-delay: 0.4s;
+    }
+  }
+
+  .dot {
+    animation-play-state: paused;
+  }
+}
