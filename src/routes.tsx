@@ -1,7 +1,7 @@
 import React from 'react';
 import { RouteProps } from 'react-router-dom';
 import Layout from './components/Layout';
-import NewsList from './features/news/';
+import NewsList from './features/ratesListCurrency';
 import InfoPage from './components/info';
 
 const routes: RouteProps[] = [
