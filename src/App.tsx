@@ -1,6 +1,6 @@
-import { Routes, Route } from 'react-router-dom';
-import LanguageWrapper from './features/languages/LanguageWraper';
-import routes from './routes';
+import { Routes, Route } from "react-router-dom";
+import LanguageWrapper from "./features/languages/LanguageWraper";
+import routes from "./routes";
 
 function App() {
   return (
