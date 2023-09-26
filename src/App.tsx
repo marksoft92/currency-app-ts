@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import LanguageWrapper from "./features/languages/LanguageWraper";
+import LanguageWrapper from "./services/languages/LanguageWraper";
 import routes from "./routes";
 
 function App() {

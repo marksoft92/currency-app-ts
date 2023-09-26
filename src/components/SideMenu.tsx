@@ -8,8 +8,8 @@ import { useAppDispatch, useAppSelector } from "../app/hooks";
 import {
   selectCurrency,
   selectLoading,
-} from "../features/currencyList/currencyListSlice";
-import { fetchCurrency } from "../features/currencyList/fetchCurrency";
+} from "../containers/currencyList/currencyListSlice";
+import { fetchCurrency } from "../containers/currencyList/fetchCurrency";
 
 const SideMenu: React.FC = () => {
   const { currency, loading } = useAppSelector((state) => ({

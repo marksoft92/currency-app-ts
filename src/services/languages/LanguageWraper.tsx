@@ -17,7 +17,7 @@ const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({
   const intlProviderValue = useMemo(() => {
     return {
       locale: locale || DEFAULT_LOCALE,
-      messages: require(`../translations/${locale || DEFAULT_LOCALE}.json`),
+      messages: require(`../../translations/${locale || DEFAULT_LOCALE}.json`),
     };
   }, [locale]);
   return (
@@ -31,7 +31,9 @@ const LanguageWrapper: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const locale: string = useSelector(selectLanguage);
-  const messages = require(`../translations/${locale || DEFAULT_LOCALE}.json`);
+  const messages = require(`../../translations/${
+    locale || DEFAULT_LOCALE
+  }.json`);
 
   const memoizedLocale = useMemo(() => locale || DEFAULT_LOCALE, [locale]);
   const memoizedMessages = useMemo(() => messages, [messages]);
