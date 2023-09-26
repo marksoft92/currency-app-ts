@@ -1,6 +1,6 @@
 # Currency Exchange Rate App
 
-![React](https://img.shields.io/badge/React-18.2.0-blue) 
+:react ![React](https://img.shields.io/badge/React-18.2.0-blue) 
 ![TypeScript](https://img.shields.io/badge/TypeScript-4.9.5-blue) 
 ![React Router](https://img.shields.io/badge/React%20Router-6.9.0-blue) 
 ![Eslint](https://img.shields.io/badge/Eslint-8.0.1-blue) 
