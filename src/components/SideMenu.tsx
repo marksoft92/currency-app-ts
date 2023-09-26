@@ -19,25 +19,28 @@ const SideMenu: React.FC = () => {
         dispatch(fetchCurrency());
     }, [dispatch]);
 
-    const [visibleItems, setVisibleItems] = useState(10); // Liczba widocznych pozycji początkowo
-    const increment = 10; // Liczba pozycji do wczytania za każdym razem
+    const [visibleItems, setVisibleItems] = useState(10); 
+    const increment = 10; 
 
     const loadMore = () => {
-        // Zwiększ liczbę widocznych pozycji o wartość "increment"
         setVisibleItems(prevVisibleItems => prevVisibleItems + increment);
     };
+
+    const LoadingIndicator: React.FC = () => (
+        <Menu.Item key="loading" icon={<Spin indicator={<LoadingOutlined />} />}>
+            <FormattedMessage id="spiner.loading" />
+        </Menu.Item>
+    );
 
     return (
         <div>
             <Menu mode="inline">
                 {loading ? (
-                    <Menu.Item key="loading" icon={<Spin indicator={<LoadingOutlined />} />}>
-                        <FormattedMessage id="spiner.loading" />
-                    </Menu.Item>
+                       <LoadingIndicator />
                 ) : (
-                    (currency?.[0]?.rates || []).slice(0, visibleItems).map((country) => (
-                        <Menu.Item key={country.currency} >
-                            <Link to={`/currency/${country.currency.toLowerCase()}`}>{`Currency: ${country.currency} Rate: ${country.rate}`}</Link>
+                    (currency?.[0]?.rates || []).slice(0, visibleItems).map(({ currency, rate }) => (
+                        <Menu.Item key={currency}>
+                            <Link to={`/currency/${currency.toLowerCase()}`}>{`Currency: ${currency} Rate: ${rate}`}</Link>
                         </Menu.Item>
                     ))
                 )}
