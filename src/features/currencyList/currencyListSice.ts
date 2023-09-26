@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 import axios from 'axios';
-
+const apiKey = process.env.REACT_APP_API_KEY;
 interface Currency {
     currency: string;
-    rate: number; // Określamy tutaj, że `rate` jest typem number
+    rate: number; 
 }
 
 interface Currencies {
@@ -31,7 +31,7 @@ const axiosInstance = axios.create({
 
 export const fetchCurrency = createAsyncThunk('currency/fetch', async () => {
     try {
-        const response = await axiosInstance.get<any>('https://api.apilayer.com/exchangerates_data/latest?apikey=dLE4c1ar5VRw2YegPLCYYI8Uuh1ng5ep&base=PLN');
+        const response = await axiosInstance.get<any>(`https://api.apilayer.com/exchangerates_data/latest?apikey=${apiKey}&base=PLN`);
         const { base, date, rates } = response.data;
 
         // Wyjaśniamy TypeScriptowi, że `rate` jest liczbą
