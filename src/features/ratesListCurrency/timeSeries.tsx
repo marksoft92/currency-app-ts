@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table } from 'antd';
-import { RateInfo } from "./newsSlice"
+import { RateInfo } from "./timeSeriesSlice"
 import columns from './columns';
 import Breadcrumbs from '../../components/Breadcrumbs';
 interface NewsProps {

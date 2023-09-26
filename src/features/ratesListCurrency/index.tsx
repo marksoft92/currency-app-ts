@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { fetchTimeseriesCurrency, selectRates, selectLoading } from './newsSlice';
+import { fetchTimeseriesCurrency, selectRates, selectLoading } from './timeSeriesSlice';
 import { useCustomNavigate } from '../../utils/helpers';
-import NewsList from './news';
+import NewsList from './timeSeries';
 import { useEffect } from 'react';
 import { useParams } from 'react-router';
 import { AppDispatch, RootState } from '../../app/store';

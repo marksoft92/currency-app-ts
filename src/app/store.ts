@@ -1,7 +1,7 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import currencySlice from '../features/currencyList/currencyListSice';
 
-import newsRecuer from '../features/ratesListCurrency/newsSlice'
+import newsRecuer from '../features/ratesListCurrency/timeSeriesSlice'
 import languagesReducer from '../features/languages/languagesSlice';
 
 export const store = configureStore({
