@@ -31,7 +31,7 @@ const axiosInstance = axios.create({
 
 export const fetchCountries = createAsyncThunk('countries/fetch', async () => {
     try {
-        const response = await axiosInstance.get<any>('http://api.exchangeratesapi.io/v1/timeseries?access_key=b8a256b869273cf17d0e084579c05843&start_date=2012-05-01&end_date=2012-05-03');
+        const response = await axiosInstance.get<any>('https://api.apilayer.com/exchangerates_data/latest?apikey=dLE4c1ar5VRw2YegPLCYYI8Uuh1ng5ep&base=PLN');
         const { base, date, rates } = response.data;
 
         // Wyjaśniamy TypeScriptowi, że `rate` jest liczbą

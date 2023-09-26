@@ -1,54 +1,40 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { RootState } from '../../app/store';
+import { getStartAndEndDate } from '../../utils/helpers';
 
 
-export interface Article {
-    title: string;
-    description: string;
-    url: string;
-    urlToImage: string;
-    author: string;
-    publishedAt: string;
-    source: {
-        id: string | null;
-        name: string;
-    };
-    content: string
+export interface RateInfo {
+    [currency: string]: number;
 }
 
-interface NewsState {
-    articles: Article[];
-    selectedArticle: Article | null;
+export interface ExchangeRate {
     loading: boolean;
     error: string | null;
+    rates: { [date: string]: RateInfo };
 }
 
-const initialState: NewsState = {
-    articles: [],
-    selectedArticle: null,
+
+
+const initialState: ExchangeRate = {
     loading: false,
     error: null,
+    rates: {},
 };
+const { start, end } = getStartAndEndDate();
 
-export const fetchNews = createAsyncThunk('news/fetch', async (countryCode: string | undefined) => {
-    const response = await axios.get<{ articles: Article[] }>(
-        `https://newsapi.org/v2/top-headlines?country=${countryCode}&apiKey=e4062ceaa3da425780f99583b44ada14`
+export const fetchNews = createAsyncThunk('timeseries/fetch', async (currencyCode: string | undefined) => {
+    const response = await axios.get<ExchangeRate>(
+        `https://api.apilayer.com/exchangerates_data/timeseries?apikey=dLE4c1ar5VRw2YegPLCYYI8Uuh1ng5ep&start_date=${start}&end_date=${end}&base=${currencyCode}`
     );
-    return response.data.articles;
+
+    return response.data;
 });
 
 export const newsSlice = createSlice({
     name: 'news',
     initialState,
-    reducers: {
-        selectArticle(state, action: PayloadAction<Article>) {
-            state.selectedArticle = action.payload;
-        },
-        clearSelectedArticle(state) {
-            state.selectedArticle = null;
-        },
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder
             .addCase(fetchNews.pending, (state) => {
@@ -56,7 +42,7 @@ export const newsSlice = createSlice({
             })
             .addCase(fetchNews.fulfilled, (state, action) => {
                 state.loading = false;
-                state.articles = action.payload;
+                state.rates = action.payload.rates;
             })
             .addCase(fetchNews.rejected, (state, action) => {
                 state.loading = false;
@@ -65,13 +51,8 @@ export const newsSlice = createSlice({
     },
 });
 
-export const selectArticles = (state: RootState) => state.news.articles;
+export const selectArticles = (state: RootState) => state.news.rates;
 export const selectLoading = (state: RootState) => state.news.loading;
-export const selectSelectedArticle = (state: RootState) => state.news.selectedArticle;
 
-export const {
-    selectArticle,
-    clearSelectedArticle,
-} = newsSlice.actions;
 
 export default newsSlice.reducer;

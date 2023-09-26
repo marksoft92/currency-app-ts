@@ -2,39 +2,48 @@ import React from 'react';
 import { Table } from 'antd';
 import { useParams } from 'react-router';
 import { useDispatch } from 'react-redux';
-
+import { RateInfo } from "./newsSlice"
 import columns from './columns';
 import Breadcrumbs from '../../components/Breadcrumbs';
 import { convertToHyphenCase } from '../../utils/helpers';
-import { selectArticle } from './newsSlice';
+
 
 interface NewsProps {
-  articles: any[];
+  rates: { [date: string]: RateInfo };
   onPush: (path: string) => void;
 }
 
-const News: React.FC<NewsProps> = ({ articles, onPush }) => {
-  const { countryCode } = useParams<{ countryCode: string }>();
-  const dispatch = useDispatch();
+const News: React.FC<NewsProps> = ({ rates, onPush }) => {
 
-  const handleRowClick = (record: any) => {
-    const { title } = record;
-    const hyphenatedTitle = convertToHyphenCase(title);
-    const articlePath = `/country/${countryCode}/${hyphenatedTitle}`;
-    onPush(articlePath);
-    dispatch(selectArticle(record)); 
-  };
 
+  function obiektDoTablicy(obiekt: any) {
+    const tablicaWynikowa = [];
+
+    // Iterujemy przez klucze w obiekcie wejściowym
+    for (const data in obiekt) {
+      if (obiekt.hasOwnProperty(data)) {
+        const element = {
+          data: data,
+          allCurrency: obiekt[data]
+        };
+        tablicaWynikowa.push(element);
+      }
+    }
+
+    return tablicaWynikowa;
+  }
+
+  const tablicaWyjsciowa = obiektDoTablicy(rates);
+  console.log(tablicaWyjsciowa);
   return (
     <>
       <Breadcrumbs />
       <Table
-        dataSource={articles}
+        dataSource={tablicaWyjsciowa}
         columns={columns}
-        onRow={(record) => ({
-          onClick: () => handleRowClick(record),
-        })}
+        pagination={false}
       />
+
     </>
   );
 };

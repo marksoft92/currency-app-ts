@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { fetchNews, selectArticles, selectLoading } from './newsSlice';
 import { useCustomNavigate } from '../../utils/helpers';
@@ -7,28 +8,29 @@ import { useParams } from 'react-router';
 import { AppDispatch, RootState } from '../../app/store';
 
 const mapStateToProps = (state: RootState) => {
+    console.log(state)
     return {
-        articles: selectArticles(state),
+        rates: selectArticles(state),
         loading: selectLoading(state),
     };
 };
 
 const mapDispatchToProps = (dispatch: AppDispatch) => {
     return {
-        fetchNews: (countryCode: string | undefined) => dispatch(fetchNews(countryCode)),
+        fetchNews: (currencyCode: string | undefined) => dispatch(fetchNews(currencyCode)),
     };
 };
 
 const ConnectedNewsList = connect(mapStateToProps, mapDispatchToProps)(NewsList);
-
+console.log(ConnectedNewsList)
 const ListNews: React.FC = () => {
-    const { countryCode } = useParams();
+    const { currencyCode } = useParams();
     const dispatch: AppDispatch = useDispatch();
     const onPush = useCustomNavigate();
 
     useEffect(() => {
-        dispatch(fetchNews(countryCode || undefined));
-    }, [dispatch, countryCode]);
+        dispatch(fetchNews(currencyCode || undefined));
+    }, [dispatch, currencyCode]);
 
     return (
         <>
