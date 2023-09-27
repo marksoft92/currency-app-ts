@@ -30,10 +30,10 @@ const SideMenu: React.FC = () => {
     setVisibleItems((prevVisibleItems) => prevVisibleItems + increment);
   };
 
-  const currencyColumnList = (currency?.[0]?.rates || [])
+  const currencyItems = (currency?.[0]?.rates || [])
     .slice(0, visibleItems)
-    .map(({ currency, rate }) => (
-      <Menu.Item key={currency}>
+    .map(({ currency, rate }) => ({
+      label: (
         <Link to={`/currency/${currency.toLowerCase()}`}>
           <FormattedMessage id="currency" />
           &nbsp;
@@ -43,8 +43,9 @@ const SideMenu: React.FC = () => {
           &nbsp;
           <strong>{rate}</strong>
         </Link>
-      </Menu.Item>
-    ));
+      ),
+      key: currency + rate,
+    }));
 
   return (
     <div className="left-content">
@@ -53,20 +54,19 @@ const SideMenu: React.FC = () => {
         &nbsp;
         <LineChartOutlined />
       </span>
-      <Menu mode="inline">
-        {loading ? (
-          <Loader />
-        ) : (
-          <>
-            {currencyColumnList}
-            <button className="button-load-more" onClick={loadMore}>
-              <div className="dot dot-1"></div>
-              <div className="dot dot-2"></div>
-              <div className="dot dot-3"></div>
-            </button>
-          </>
-        )}
-      </Menu>
+
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <Menu mode="inline" items={currencyItems}></Menu>
+          <button className="button-load-more" onClick={loadMore}>
+            <div className="dot dot-1"></div>
+            <div className="dot dot-2"></div>
+            <div className="dot dot-3"></div>
+          </button>
+        </>
+      )}
     </div>
   );
 };

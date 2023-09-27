@@ -5,6 +5,7 @@
   flex-direction: column;
   position: sticky;
   top: 4rem;
+  margin-left: -1px;
 }
 
 .content {
@@ -16,15 +17,13 @@
     display: flex;
     flex-direction: column;
   }
-
+  .button-load-more {
+    margin: 1rem auto;
+  }
   ul {
     width: 20rem;
     color: #000;
-    &.ant-menu {
-      .button-load-more {
-        margin: 1rem auto;
-      }
-    }
+
     .ant-menu-item {
       img {
         width: 30px;

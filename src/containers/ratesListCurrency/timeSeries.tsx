@@ -31,12 +31,16 @@ const News: React.FC<NewsProps> = ({ rates, loading }) => {
 
   return (
     <>
-      <span className="titleColumn "><FormattedMessage id="titleColumnHistoryCurrency" />&nbsp;<OrderedListOutlined /></span>
+      <span className="titleColumn ">
+        <FormattedMessage id="titleColumnHistoryCurrency" />
+        &nbsp;
+        <OrderedListOutlined />
+      </span>
       <Table
         dataSource={tablicaWyjsciowa}
         columns={columns}
         pagination={false}
-        key="data"
+        rowKey="data"
         loading={loading}
       />
     </>
