@@ -11,3 +11,19 @@ export function getStartAndEndDate() {
 
   return { start: startFormatted, end: endFormatted };
 }
+
+export function objectCurrencyToArray(objectElement: any) {
+  const resultArray = [];
+
+  for (const data in objectElement) {
+    if (objectElement.hasOwnProperty(data)) {
+      const element = {
+        data: data,
+        allCurrency: objectElement[data],
+      };
+      resultArray.push(element);
+    }
+  }
+
+  return resultArray;
+}

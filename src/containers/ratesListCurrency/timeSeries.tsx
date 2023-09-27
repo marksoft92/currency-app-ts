@@ -4,29 +4,14 @@ import { RateInfo } from "./types";
 import columns from "./columns";
 import { FormattedMessage } from "react-intl";
 import { OrderedListOutlined } from "@ant-design/icons";
+import { objectCurrencyToArray } from "../../utils/helpers";
 interface NewsProps {
   rates: { [date: string]: RateInfo };
   loading: boolean;
 }
 
 const News: React.FC<NewsProps> = ({ rates, loading }) => {
-  function obiektDoTablicy(obiekt: any) {
-    const tablicaWynikowa = [];
-
-    for (const data in obiekt) {
-      if (obiekt.hasOwnProperty(data)) {
-        const element = {
-          data: data,
-          allCurrency: obiekt[data],
-        };
-        tablicaWynikowa.push(element);
-      }
-    }
-
-    return tablicaWynikowa;
-  }
-
-  const tablicaWyjsciowa = obiektDoTablicy(rates);
+  const outputArray = objectCurrencyToArray(rates);
 
   return (
     <>
@@ -36,7 +21,7 @@ const News: React.FC<NewsProps> = ({ rates, loading }) => {
         <OrderedListOutlined />
       </span>
       <Table
-        dataSource={tablicaWyjsciowa}
+        dataSource={outputArray}
         columns={columns}
         pagination={false}
         rowKey="data"
