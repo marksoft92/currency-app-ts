@@ -111,3 +111,18 @@
   display: flex;
   justify-content: space-evenly;
 }
+
+.json-view {
+  .json-view--copy {
+    height: 15px;
+    padding: 0px;
+    margin-left: 10px;
+  }
+  .jv-chevron {
+    height: 10px;
+    padding: 2px;
+  }
+  .jv-indent {
+    margin-left: 2rem;
+  }
+}

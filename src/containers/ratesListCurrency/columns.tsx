@@ -1,6 +1,6 @@
 import React from "react";
 import { FormattedMessage } from "react-intl";
-//import ReactJson from 'react-json-view';
+import JsonView from "react18-json-view";
 
 interface CurrencyData {
   [key: string]: number;
@@ -26,17 +26,7 @@ const columns = [
 ];
 
 const JsonTree: React.FC<{ data: any }> = ({ data }) => {
-  return (
-    <></>
-    // <ReactJson
-    //     src={data}
-
-    //     name={null}
-    //     iconStyle="square"
-    //     displayDataTypes={false}
-    //     collapsed={0}
-    // />
-  );
+  return <JsonView src={data} collapsed={0} theme="winter-is-coming" />;
 };
 
 export default columns;
