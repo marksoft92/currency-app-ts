@@ -24,8 +24,7 @@ export const timeSeriesCurrencySlice = createSlice({
       })
       .addCase(fetchTimeseriesCurrency.rejected, (state, action) => {
         state.loading = false;
-        state.error =
-          action.error.message ?? "Wystąpił błąd podczas ładowania artykułów.";
+        state.error = action.error.message ?? "error";
       });
   },
 });
