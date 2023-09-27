@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, Spin } from "antd";
-import { LineChartOutlined, LoadingOutlined } from "@ant-design/icons";
+import { Menu } from "antd";
+import { LineChartOutlined } from "@ant-design/icons";
 import { FormattedMessage } from "react-intl";
 
 import { useAppDispatch, useAppSelector } from "../app/hooks";
@@ -30,38 +30,42 @@ const SideMenu: React.FC = () => {
     setVisibleItems((prevVisibleItems) => prevVisibleItems + increment);
   };
 
-  const currencyColumnList = (
-    (currency?.[0]?.rates || [])
-      .slice(0, visibleItems)
-      .map(({ currency, rate }) => (
-        <Menu.Item key={currency}>
-          <Link
-            to={`/currency/${currency.toLowerCase()}`}
-          ><FormattedMessage id="currency" />
-            &nbsp;
-            <strong>{currency}</strong>
-            &nbsp;
-            <FormattedMessage id="titleColumnCurrency" />
-            &nbsp;
-            <strong>{rate}</strong></Link>
-        </Menu.Item>
-      ))
-  )
+  const currencyColumnList = (currency?.[0]?.rates || [])
+    .slice(0, visibleItems)
+    .map(({ currency, rate }) => (
+      <Menu.Item key={currency}>
+        <Link to={`/currency/${currency.toLowerCase()}`}>
+          <FormattedMessage id="currency" />
+          &nbsp;
+          <strong>{currency}</strong>
+          &nbsp;
+          <FormattedMessage id="titleColumnCurrency" />
+          &nbsp;
+          <strong>{rate}</strong>
+        </Link>
+      </Menu.Item>
+    ));
 
   return (
     <div className="left-content">
-      <span className="titleColumn "><FormattedMessage id="titleColumnCurrency" />&nbsp;<LineChartOutlined /></span>
+      <span className="titleColumn ">
+        <FormattedMessage id="titleColumnCurrency" />
+        &nbsp;
+        <LineChartOutlined />
+      </span>
       <Menu mode="inline">
         {loading ? (
           <Loader />
-        ) : <>
-          {currencyColumnList}
-          <button className="button-load-more" onClick={loadMore}>
-            <div className="dot dot-1"></div>
-            <div className="dot dot-2"></div>
-            <div className="dot dot-3"></div>
-          </button>
-        </>}
+        ) : (
+          <>
+            {currencyColumnList}
+            <button className="button-load-more" onClick={loadMore}>
+              <div className="dot dot-1"></div>
+              <div className="dot dot-2"></div>
+              <div className="dot dot-3"></div>
+            </button>
+          </>
+        )}
       </Menu>
     </div>
   );
