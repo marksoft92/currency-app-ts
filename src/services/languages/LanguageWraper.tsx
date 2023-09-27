@@ -4,7 +4,7 @@ import { IntlProvider } from "react-intl";
 import { selectLanguage } from "./languagesSlice";
 
 const DEFAULT_LOCALE = "en";
-const LanguageContext = createContext<{ locale: string; messages: any }>({
+const LanguageContext = createContext<{ locale: string; messages: object }>({
   locale: DEFAULT_LOCALE,
   messages: {},
 });

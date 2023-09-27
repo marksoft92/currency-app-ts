@@ -6,7 +6,7 @@ interface CurrencyData {
   [key: string]: number;
 }
 
-const JsonTree: React.FC<{ data: any }> = ({ data }) => {
+const JsonTree: React.FC<{ data: object }> = ({ data }) => {
   return <JsonView src={data} collapsed={0} theme="winter-is-coming" />;
 };
 

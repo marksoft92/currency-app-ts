@@ -1,3 +1,5 @@
+import { RateInfo } from "../containers/ratesListCurrency/types";
+
 export function getStartAndEndDate() {
   const currentDate = new Date();
   const currentDayOfWeek = currentDate.getDay();
@@ -12,7 +14,9 @@ export function getStartAndEndDate() {
   return { start: startFormatted, end: endFormatted };
 }
 
-export function objectCurrencyToArray(objectElement: any) {
+export function objectCurrencyToArray(objectElement: {
+  [date: string]: RateInfo;
+}) {
   const resultArray = [];
 
   for (const data in objectElement) {
