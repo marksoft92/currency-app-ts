@@ -13,7 +13,6 @@ const News: React.FC<NewsProps> = ({ rates, loading }) => {
   function obiektDoTablicy(obiekt: any) {
     const tablicaWynikowa = [];
 
-    // Iterujemy przez klucze w obiekcie wejściowym
     for (const data in obiekt) {
       if (obiekt.hasOwnProperty(data)) {
         const element = {

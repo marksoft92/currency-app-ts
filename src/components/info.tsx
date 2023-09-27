@@ -2,7 +2,6 @@ import { Alert } from "antd";
 import React from "react";
 import { FormattedMessage } from "react-intl";
 
-// Przykładowe komunikaty. Tutaj można użyć dowolnej struktury zewnętrznych danych.
 const messages = {
   requiredInstall: <FormattedMessage id="requiredInstall" />,
   howToUseSteps: [
