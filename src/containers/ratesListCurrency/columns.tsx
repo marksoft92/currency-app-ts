@@ -11,9 +11,13 @@ interface MyData {
   allCurrency: CurrencyData;
 }
 
+const JsonTree: React.FC<{ data: any }> = ({ data }) => {
+  return <JsonView src={data} collapsed={0} theme="winter-is-coming" />;
+};
+
 const columns = [
   {
-    title: <FormattedMessage id="popup.author" />,
+    title: <FormattedMessage id="date" />,
     dataIndex: "data",
     key: "data",
   },
@@ -24,9 +28,5 @@ const columns = [
     render: (allCurrency: CurrencyData) => <JsonTree data={allCurrency} />,
   },
 ];
-
-const JsonTree: React.FC<{ data: any }> = ({ data }) => {
-  return <JsonView src={data} collapsed={0} theme="winter-is-coming" />;
-};
 
 export default columns;
