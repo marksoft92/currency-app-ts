@@ -1,4 +1,4 @@
-import { RateInfo } from "../containers/ratesListCurrency/types";
+import { RatesTimeSeries } from "../containers/ratesListCurrency/types";
 
 export function getStartAndEndDate() {
   const currentDate = new Date();
@@ -14,9 +14,7 @@ export function getStartAndEndDate() {
   return { start: startFormatted, end: endFormatted };
 }
 
-export function objectCurrencyToArray(objectElement: {
-  [date: string]: RateInfo;
-}) {
+export function objectCurrencyToArray(objectElement: RatesTimeSeries) {
   const resultArray = [];
 
   for (const data in objectElement) {

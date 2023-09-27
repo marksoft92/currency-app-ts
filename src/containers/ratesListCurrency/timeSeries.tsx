@@ -1,12 +1,12 @@
 import React from "react";
 import { Table } from "antd";
-import { RateInfo } from "./types";
+import { RatesTimeSeries } from "./types";
 import columns from "./columns";
 import { FormattedMessage } from "react-intl";
 import { OrderedListOutlined } from "@ant-design/icons";
 import { objectCurrencyToArray } from "../../utils/helpers";
 interface CurrencyRatesListProps {
-  rates: { [date: string]: RateInfo };
+  rates: RatesTimeSeries;
   loading: boolean;
 }
 
