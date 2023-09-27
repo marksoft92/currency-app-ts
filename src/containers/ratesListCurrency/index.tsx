@@ -2,7 +2,7 @@ import React from "react";
 import { connect, useDispatch } from "react-redux";
 import { selectRates, selectLoading } from "./timeSeriesSlice";
 import { fetchTimeseriesCurrency } from "./fetchTimeseriesCurrency";
-import NewsList from "./timeSeries";
+import CurrencyRatesList from "./timeSeries";
 import { useEffect } from "react";
 import { useParams } from "react-router";
 import { AppDispatch, RootState } from "../../app/store";
@@ -21,11 +21,11 @@ const mapDispatchToProps = (dispatch: AppDispatch) => {
   };
 };
 
-const ConnectedNewsList = connect(
+const ConnectedTimeSeriesList = connect(
   mapStateToProps,
   mapDispatchToProps
-)(NewsList);
-const ListNews: React.FC = () => {
+)(CurrencyRatesList);
+const TimeSeriesCurrency: React.FC = () => {
   const { currencyCode } = useParams();
   const dispatch: AppDispatch = useDispatch();
 
@@ -35,9 +35,9 @@ const ListNews: React.FC = () => {
 
   return (
     <>
-      <ConnectedNewsList />
+      <ConnectedTimeSeriesList />
     </>
   );
 };
 
-export default ListNews;
+export default TimeSeriesCurrency;

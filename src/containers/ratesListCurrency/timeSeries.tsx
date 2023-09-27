@@ -5,12 +5,15 @@ import columns from "./columns";
 import { FormattedMessage } from "react-intl";
 import { OrderedListOutlined } from "@ant-design/icons";
 import { objectCurrencyToArray } from "../../utils/helpers";
-interface NewsProps {
+interface CurrencyRatesListProps {
   rates: { [date: string]: RateInfo };
   loading: boolean;
 }
 
-const News: React.FC<NewsProps> = ({ rates, loading }) => {
+const CurrencyRatesList: React.FC<CurrencyRatesListProps> = ({
+  rates,
+  loading,
+}) => {
   const outputArray = objectCurrencyToArray(rates);
 
   return (
@@ -31,4 +34,4 @@ const News: React.FC<NewsProps> = ({ rates, loading }) => {
   );
 };
 
-export default News;
+export default CurrencyRatesList;

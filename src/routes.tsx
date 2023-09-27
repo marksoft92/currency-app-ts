@@ -1,7 +1,7 @@
 import React from "react";
 import { RouteProps } from "react-router-dom";
 import Layout from "./components/Layout";
-import NewsList from "./containers/ratesListCurrency";
+import TimeSeriesCurrency from "./containers/ratesListCurrency";
 import InfoPage from "./components/info";
 
 const routes: RouteProps[] = [
@@ -25,7 +25,7 @@ const routes: RouteProps[] = [
     path: "/currency/:currencyCode",
     element: (
       <Layout>
-        <NewsList />
+        <TimeSeriesCurrency />
       </Layout>
     ),
   },

@@ -12,14 +12,14 @@
   "spiner.loading": "Loading...",
   "title.homePage": "Home Page",
   "home.howToUse.title": "How to Use:",
-  "requiredInstall": "Please run the application locally as the developer version may not work correctly due to API limitations and possible CORS (Cross-Origin Resource Sharing) errors. By running the application locally, we avoid these issues and can take advantage of the full functionality.",
-  "home.howToUse.step1": "On the left side, you will find a list of countries. Click on a country to view the corresponding news articles.",
-  "home.howToUse.step2": "A reactive table will appear with news articles related to the selected country.",
-  "home.howToUse.step3": "Within the application, you can also switch between different languages to view the content in your preferred language.",
+  "requiredInstall": "Please run the application locally as the developer version may not work correctly due to API limitations and potential CORS (Cross-Origin Resource Sharing) errors. Running the application locally helps us avoid these issues and ensures full functionality.",
+  "home.howToUse.step1": "On the left side, you'll find a list of exchange rates relative to the Polish Zloty (PLN). Click on a currency to see its exchange rate history from last Monday to today.",
+  "home.howToUse.step2": "After clicking, a responsive table with the currency exchange rate history and dates will appear.",
+  "home.howToUse.step3": "In the application, you can also switch between different languages to display content in your preferred language.",
   "home.technologiesUsed.title": "Technologies Used:",
   "home.technologiesUsed.react": "React: A JavaScript library for building user interfaces.",
   "home.technologiesUsed.typescript": "TypeScript: A typed superset of JavaScript that helps improve code quality and developer productivity.",
-  "home.technologiesUsed.reactRouter": "React Router: A routing library for declarative navigation within a React application.",
-  "home.technologiesUsed.esLint": "I used the Eslint tool for static code analysis and linting to ensure consistency, readability, and adherence to established standards. Eslint helps identify and correct potential errors, style inconsistencies, and poor coding practices. This tool allowed me to maintain a high code quality and avoid potential issues during application development. Furthermore, thanks to Eslint, I was able to avoid problems when deploying the application on a free hosting platform. The tool assists in detecting and fixing potential issues, such as dependency problems, library version conflicts, and incorrect imports. These corrections ensured that my application functioned properly, even in a limited hosting environment.",
-  "home.technologiesUsed.otherLibraries": "Other libraries and tools specific to your project may be listed here."
+  "home.technologiesUsed.reactRouter": "React Router: A routing library for declarative navigation in React applications.",
+  "home.technologiesUsed.esLint": "I used the ESLint tool to perform static code analysis and linting on my code to ensure consistency, readability, and compliance with established standards. ESLint helps identify and fix potential errors, code style inconsistencies, and poor coding practices. Thanks to this tool, I was able to maintain a high code quality and avoid potential issues during application development. Additionally, ESLint helped me avoid problems with running the application on free hosting services by detecting and correcting potential issues such as dependency problems, library version mismatches, or incorrect imports. Thanks to these corrections, I was confident that my application would work correctly even in a limited hosting environment.",
+  "home.technologiesUsed.otherLibraries": "Other project-specific libraries and tools may be listed here."
 }
